@@ -6,6 +6,8 @@ import {
 import Home from './pages/home/Home';
 import List from './pages/list/List';
 import Hotel from './pages/hotel/Hotel';
+import React from 'react'
+
 
 function App() {
   return (

@@ -1,18 +1,14 @@
 import React from 'react'
 import "./home.css"
-import Navbar from '../components/Navbar'
+import Navbar from '../components/navbar/Navbar'
+import Header from '../components/header/Header'
 
 
 export const Home = () => {
   return (
-    <div className='navbar'>
-      <div className="navContainer">
-        <span className="logo">Booking</span>
-        <div className="navItems">
-          <button className="navButton">Register</button>
-          <button className="navButton">Login</button>
-        </div>
-      </div>
+    <div>
+      <Navbar/>
+      <Header/>
     </div>
   )
 }
