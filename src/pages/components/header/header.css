@@ -61,6 +61,7 @@
 
 .headerIcon{
     color: lightgray;
+    margin-right: 10px;
 }
 
 .headerSearchInput{
@@ -71,4 +72,20 @@
 .headerSearchText{
     color: lightgray;
     cursor: pointer;
+}
+
+
+.date{
+    position: absolute;
+    top: 55px;
+    left: 350px;
+}
+
+.options{
+    position: absolute;
+    top: 55px;
+    background-color: white;
+    color: gray;
+    border-radius: 5px solid black;
+    
 }
