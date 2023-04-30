@@ -78,7 +78,7 @@
 .date{
     position: absolute;
     top: 55px;
-    left: 350px;
+    left: 300px;
 }
 
 .options{
@@ -86,6 +86,34 @@
     top: 55px;
     background-color: white;
     color: gray;
-    border-radius: 5px solid black;
-    
+    border-radius: 5px solid;
+    -webkit-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.4);
+}
+
+.optionItem{
+    width: 200px;   
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.optionCounter{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    gap: 10px;	
+    color: black;
+}
+
+.optionCounterButton{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #0071c2;
+    color: #0071c2;
+    cursor: pointer;
+    background-color: white;
+}
+.optionCounterButton:disabled{
+    cursor: not-allowed;
 }

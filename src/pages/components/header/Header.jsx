@@ -16,12 +16,30 @@ function Header() {
             key: 'selection'
         }
     ]);
+    /*Biến openOptions để mở và đóng phần chọn số người và phòng(hiện thị vs ẩn)
+    The setOpenOptions function is used to open and close the number of people and rooms selection section
+    The options variable is used to initialize the number of people and rooms selected
+    the setOptions function is used to update the number of people and rooms selected
+     */
     const [openOptions, setOpenOptions] = useState(false);
     const [options, setOptions] = useState({
         adult: 1,
         children: 0,
         room: 1
     })
+
+    // Hàm handleOption để thay đổi số người và phòng khi click vào nút + và -
+    //setOptions là hàm để cập nhật lại số người và phòng nhận 1 tham số là 1 object prev là giá trị trước đó
+    //..prev là giữ các giá trị của object trước đó, thay đổi giá trị của "name" bằng cách thực hiện phép toán "operation"
+    const handleOption = (name, operation) =>{
+        setOptions((prev) => {
+            if(prev[name] === 0 && operation === "d") return prev;
+            return{
+                ...prev,
+                [name]: operation === "i" ? prev[name] + 1 : prev[name] - 1
+            }
+        })
+    }
 
     return (
         <div className='header'>
@@ -77,29 +95,43 @@ function Header() {
                     </div>
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faPerson} className='headerIcon' />
-                        <span className="headerSearchText">
+                        <span 
+                        onClick={() => setOpenOptions(!openOptions)}
+                        className="headerSearchText">
                             {`${options.adult} Adult, ${options.children} Children, ${options.room} Room`}
                         </span>
-                        <div className="options">
+                        {openOptions && <div className="options">
                             <div className="optionItem">
                                 <span className="optionText">Adult</span>
-                                <button className="optionCounterButtun">-</button>
-                                <span className="optionCounterNumber">1</span>
-                                <button className="optionCounterButton">+</button>
+                                <div className="optionCounter">
+                                    <button 
+                                    disabled={options.adult === 0}
+                                    className="optionCounterButton" onClick={()=> handleOption("adult", "d")}>-</button>
+                                    <span className="optionCounterNumber">{options.adult}</span>
+                                    <button className="optionCounterButton" onClick={()=> handleOption("adult", "i")}>+</button>
+                                </div>
                             </div>
                             <div className="optionItem">
                                 <span className="optionText">Children</span>
-                                <button className="optionCounterButtun">-</button>
-                                <span className="optionCounterNumber">0</span>
-                                <button className="optionCounterButton">+</button>
+                                <div className="optionCounter">
+                                    <button 
+                                    disabled={options.children === 0}
+                                    className="optionCounterButton" onClick={()=> handleOption("children", "d")}>-</button>
+                                    <span className="optionCounterNumber">{options.children}</span>
+                                    <button className="optionCounterButton" onClick={()=> handleOption("children", "i")}>+</button>
+                                </div>
                             </div>
                             <div className="optionItem">
                                 <span className="optionText">Room</span>
-                                <button className="optionCounterButtun">-</button>
-                                <span className="optionCounterNumber">1</span>
-                                <button className="optionCounterButton">+</button>
+                                <div className="optionCounter">
+                                    <button
+                                    disabled={options.room === 0} 
+                                    className="optionCounterButton" onClick={()=> handleOption("room", "d")}>-</button>
+                                    <span className="optionCounterNumber">{options.room}</span>
+                                    <button className="optionCounterButton" onClick={()=> handleOption("room", "i")}>+</button>
+                                </div>
                             </div>
-                        </div>
+                        </div>}
                     </div>
                     <div className="headerSearchItem">
                         <button className="headerBtn">Search</button>
