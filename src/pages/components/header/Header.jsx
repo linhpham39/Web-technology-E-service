@@ -6,8 +6,10 @@ import "./header.css"
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import format from 'date-fns/format'
+import {useNavigate} from 'react-router-dom'
 
 function Header({type}) {
+    const [destination, setDestination] = useState(""); 
     const [openDate, setOpenDate] = useState(false);
     const [date, setDate] = useState([
         {
@@ -28,6 +30,8 @@ function Header({type}) {
         room: 1
     })
 
+    const navigate = useNavigate()// chuyển hướng người dùng đến bất kì component nào trên bất kì page nào
+
     // Hàm handleOption để thay đổi số người và phòng khi click vào nút + và -
     //setOptions là hàm để cập nhật lại số người và phòng nhận 1 tham số là 1 object prev là giá trị trước đó
     //..prev là giữ các giá trị của object trước đó, thay đổi giá trị của "name" bằng cách thực hiện phép toán "operation"
@@ -39,6 +43,13 @@ function Header({type}) {
                 [name]: operation === "i" ? prev[name] + 1 : prev[name] - 1
             }
         })
+    }
+
+    
+    //Hàm handleSearch để lấy thông tin khi người dùng tìm kiếm chuyển đến trang /hotels
+    
+    const handleSearch = ()=>{
+        navigate("/hotels", {state:{ destination, date, options}}) // gửi destination, date, options đến trang hotels
     }
 
     return (
@@ -74,7 +85,10 @@ function Header({type}) {
                         <input
                             type="text"
                             placeholder='Where are you going?'
-                            className='headerSearchInput' />
+                            className='headerSearchInput'
+                            onChange={e=>setDestination(e.target.value)}
+                            />
+                            
                     </div>
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faCalendarDays} className='headerIcon' />
@@ -84,12 +98,16 @@ function Header({type}) {
                             {`${format(date[0].startDate, "MM/dd/yyyy")} to 
                             ${format(date[0].endDate, "MM/dd/yyyy")}`}
                         </span>
-                        {openDate && <DateRange
+                        {openDate && (
+                        <DateRange
                             editableDateInputs={true}
                             onChange={item => setDate([item.selection])}
                             moveRangeOnFirstSelection={false}
                             ranges={date}
-                            className='date' />}
+                            className='date' 
+                            minDate={new Date()} //không thể chọn ngày cũ hơn hôm nay
+                        />
+                        )}
                     </div>
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faPerson} className='headerIcon' />
@@ -132,7 +150,7 @@ function Header({type}) {
                         </div>}
                     </div>
                     <div className="headerSearchItem">
-                        <button className="headerBtn">Search</button>
+                        <button className="headerBtn" onClick={handleSearch}>Search</button>
                     </div>
                 </div></>}
             </div>
