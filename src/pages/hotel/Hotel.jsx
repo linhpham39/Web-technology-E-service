@@ -40,6 +40,8 @@ const Hotel = () => {
     setOpen(true);
   }
 
+  //handleMove: chuyển qua lại các hình ảnh
+
   const handleMove = (direction) =>{
     let newSlideNumber;
 
