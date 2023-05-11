@@ -6,7 +6,6 @@ const router = express.Router();
 //create
 router.post('/', createHotel);
 
-
 //UPDATE
 router.put('/:id',updateHotel);
 //DELETE
