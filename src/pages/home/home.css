@@ -1,9 +1,10 @@
 .homeContainer{
-    margin-top: 50px;
+    padding-top: 70px;;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    background-color: #FDE2ED;
 }
 
 .homeTitle{
