@@ -1,7 +1,8 @@
 .listContainer {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  padding-top: 20px;
+  background-color: #fde2ed;
 }
 
 .listWrapper {
@@ -13,7 +14,7 @@
 
 .listSearch {
   flex: 1;
-  background-color: #febb02;
+  background-color: #67a3d9;
   padding: 10px;
   border-radius: 10px;
   position: sticky;
@@ -23,7 +24,7 @@
 
 .lsTitle{
     font-size: 20px;
-    color: #555;
+    color: black;
     margin-bottom: 10px;
 }
 
@@ -61,8 +62,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    color: #555;
-    font-size: 12px;
+    color: white;
+    font-size: 15px;
 }
 
 .lsOptionInput{
