@@ -16,7 +16,7 @@ export const register = async (req, res, next) => {
 
         await newUser.save()
         res.cookies("access_token", token, {
-            httpOnly: true,
+            // httpOnly: true,
         }).status(200).send("User has been created.")
     } catch (err) {
         next(err)
@@ -35,7 +35,10 @@ export const login = async (req, res, next) => {
         if (!isPasswordCorrect)
             return next(createError(400, "Wrong password or username!"))
 
-        const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.JWT)
+        const token = jwt.sign(
+            { id: user._id, isAdmin: user.isAdmin }, 
+            process.env.JWT
+        )
         const { password, isAdmin, ...otherDetails } = user._doc;
         res.cookie("access_token", token, {
             httpOnly:true,
