@@ -1,6 +1,6 @@
 import express from 'express';
 import { updateUser, deleteUser, getUser, getUsers } from '../controllers/user.js';
-import { verifyAdmin, verifyToken, verifyUser } from '../utils/verifyTojen.js';
+import { verifyAdmin, verifyToken, verifyUser } from '../utils/verifyToken.js';
 
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.get('/checkuser/:id', verifyUser, (req, res, next) => {
 });
 
 router.get('/checkadmin/:id', verifyAdmin, (req, res, next) => {
-    res.send("hello user, you are logged in and you can delete ALL accounts!");
+    res.send("hello admin, you are logged in and you can delete ALL accounts!");
 });
 
 //UPDATE

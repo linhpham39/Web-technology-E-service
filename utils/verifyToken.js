@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { createError } from "../utils/error.js";
+import { createError } from "./error.js";
 
 export const verifyToken = (req, res, next) => {
   const token = req.cookies.access_token;
@@ -25,7 +25,7 @@ export const verifyUser = (req, res, next) => {
 };
 
 export const verifyAdmin = (req, res, next) => {
-  verifyToken(req, res, /*next,*/ () => {
+  verifyToken(req, res, next, () => {
     if (req.user.isAdmin) {
       next();
     } else {
