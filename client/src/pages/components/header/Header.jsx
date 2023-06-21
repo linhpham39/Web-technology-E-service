@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBed, faCalendar, faCalendarDays, faCar, faMountainSun, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
+import { faBed, faCalendar, faCalendarDays, faCar, faCreditCard, faHouse, faMountainSun, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
 import { DateRange } from 'react-date-range'
 import "./header.css"
 import 'react-date-range/dist/styles.css'; // main style file
@@ -57,29 +57,21 @@ function Header({type}) {
             <div className={type == 'list' ? 'headerContainer listMode' : 'headerContainer'}>
                 <div className="headerList">
                     <div className="headerListItem active">
-                        <FontAwesomeIcon icon={faBed} />
-                        <span>Stays</span>
+                        <FontAwesomeIcon icon={faHouse} />
+                        <span>Home</span>
                     </div>
                     <div className="headerListItem">
-                        <FontAwesomeIcon icon={faPlane} />
-                        <span>Flights</span>
+                        <FontAwesomeIcon icon={faCalendarDays} />
+                        <span>Booking</span>
                     </div>
                     <div className="headerListItem">
-                        <FontAwesomeIcon icon={faCar} />
-                        <span>Car rentals</span>
-                    </div>
-                    <div className="headerListItem">
-                        <FontAwesomeIcon icon={faMountainSun} />
-                        <span>Attractions</span>
-                    </div>
-                    <div className="headerListItem">
-                        <FontAwesomeIcon icon={faTaxi} />
-                        <span>Airport taxis</span>
+                        <FontAwesomeIcon icon={faCreditCard} />
+                        <span>Payment</span>
                     </div>
                 </div>
                 {type!== "list" && 
                 <>      {/* JSX fragment */}
-                <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1><p className="headerDesc">Get reward for your travels- unlock instant savings of 10% or more with a free LinkBooking</p><button className="headerBtn">Sign in / Register</button><div className="headerSearch">
+                <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1><p className="headerDesc">Get reward for your travels- unlock instant savings of 10% or more with a free GTwelveBooking</p><button className="headerBtn">Sign in / Register</button><div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faCalendar} className='headerIcon' />
                         <input
