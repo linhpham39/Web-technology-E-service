@@ -1,3 +1,4 @@
+import useFetch from "../../../hooks/useFetch";
 import React from 'react'
 import "./featuredProperties.css"
 import useFetch from '../../../hooks/useFetch';
