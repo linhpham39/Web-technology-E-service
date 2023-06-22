@@ -2,6 +2,8 @@ import React from 'react'
 import "./featuredProperties.css"
 
 const FeaturedProperties = () => {
+  const {data, loading, error} = useFetch("");
+
   return (
     <div className="fp">
       <div className="fpItem">
