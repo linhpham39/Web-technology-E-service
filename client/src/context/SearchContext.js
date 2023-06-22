@@ -1,35 +1,40 @@
-import React, { createContext } from "react";
-import { useReducer } from "react";
-
-
+import { createContext, useReducer } from "react";
+import React from "react";
 const INITIAL_STATE = {
-    city:undefined,
+    city: undefined,
     dates: [],
-    options:{
+    options: {
         adult: undefined,
         children: undefined,
         room: undefined,
     },
 };
 
-export const SearchContext = createContext(INITIAL_STATE)
+export const SearchContext = createContext(INITIAL_STATE);
 
 const SearchReducer = (state, action) => {
-    switch(action.type){
+    switch (action.type) {
         case "NEW_SEARCH":
-            return action.payload
+            return action.payload;
         case "RESET_SEARCH":
-            return INITIAL_STATE
+            return INITIAL_STATE;
         default:
             return state;
     }
-};
+}
 
-export const SearchContextProvider = ({children}) => {
+export const SearchContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(SearchReducer, INITIAL_STATE);
 
-    return(
-        <SearchContext.Provider value={{city:state.city, dates:state.dates, options:state.options, dispatch,}}>
+    return (
+        <SearchContext.Provider
+            value={{
+                city: state.city,
+                dates: state.dates,
+                options: state.options,
+                dispatch,
+            }}
+        >
             {children}
         </SearchContext.Provider>
     )
