@@ -44,7 +44,7 @@ export const getHotel = async(req, res, next) => {
 }
 
 export const getHotels = async (req, res, next) => {
-    const { min, max, ...others } = req.query;
+    const { min, max,limit, ...others } = req.query;
     try {
       const limit = parseInt(req.query.limit);
       console.log("Limit:", limit);
@@ -57,6 +57,7 @@ export const getHotels = async (req, res, next) => {
     } catch (err) {
       next(err);
     }
+
   };
 export const countByCity = async(req, res, next) => {
     const cities = req.query.cities.split(',');
