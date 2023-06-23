@@ -3,13 +3,13 @@ export const userInputs = [
     id: "username",
     label: "Username",
     type: "text",
-    placeholder: "john_doe",
+    placeholder: "liinhhnt",
   },
   {
     id: "email",
     label: "Email",
     type: "email",
-    placeholder: "john_doe@gmail.com",
+    placeholder: "linhnt.ict@gmail.com",
   },
   {
     id: "phone",
@@ -26,48 +26,48 @@ export const userInputs = [
     id: "country",
     label: "Country",
     type: "text",
-    placeholder: "USA",
+    placeholder: "Vietnam",
   },
   {
     id: "city",
     label: "City",
     type: "text",
-    placeholder: "USA",
+    placeholder: "Hanoi",
   },
 ];
 
-export const productInputs = [
-  {
-    id: 1,
-    label: "Title",
-    type: "text",
-    placeholder: "Apple Macbook Pro",
-  },
-  {
-    id: 2,
-    label: "Description",
-    type: "text",
-    placeholder: "Description",
-  },
-  {
-    id: 3,
-    label: "Category",
-    type: "text",
-    placeholder: "Computers",
-  },
-  {
-    id: 4,
-    label: "Price",
-    type: "text",
-    placeholder: "100",
-  },
-  {
-    id: 5,
-    label: "Stock",
-    type: "text",
-    placeholder: "in stock",
-  },
-];
+// export const productInputs = [
+  // {
+    // id: 1,
+    // label: "Title",
+    // type: "text",
+    // placeholder: "Apple Macbook Pro",
+  // },
+  // {
+    // id: 2,
+    // label: "Description",
+    // type: "text",
+    // placeholder: "Description",
+  // },
+  // {
+    // id: 3,
+    // label: "Category",
+    // type: "text",
+    // placeholder: "Computers",
+  // },
+  // {
+    // id: 4,
+    // label: "Price",
+    // type: "text",
+    // placeholder: "100",
+  // },
+  // {
+    // id: 5,
+    // label: "Stock",
+    // type: "text",
+    // placeholder: "in stock",
+  // },
+// ];
 
 export const hotelInputs = [
   {
@@ -86,13 +86,13 @@ export const hotelInputs = [
     id: "city",
     label: "City",
     type: "text",
-    placeholder: "New York",
+    placeholder: "Hanoi",
   },
   {
     id: "address",
     label: "Address",
     type: "text",
-    placeholder: "elton st, 216",
+    placeholder: "1st Dai Co Viet",
   },
   {
     id: "distance",

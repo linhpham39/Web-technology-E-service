@@ -48,7 +48,7 @@ const Datatable = ({columns}) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
+        {path}
         <Link to={`/${path}/new`} className="link">
           Add New
         </Link>
@@ -56,7 +56,7 @@ const Datatable = ({columns}) => {
       <DataGrid
         className="datagrid"
         rows={list}
-        columns={userColumns.concat(actionColumn)}
+        columns={columns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

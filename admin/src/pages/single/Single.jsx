@@ -21,10 +21,10 @@ const Single = () => {
                 className="itemImg"
               />
               <div className="details">
-                <h1 className="itemTitle">Jane Doe</h1>
+                <h1 className="itemTitle">NT Liinhh</h1>
                 <div className="detailItem">
                   <span className="itemKey">Email:</span>
-                  <span className="itemValue">janedoe@gmail.com</span>
+                  <span className="itemValue">linh@gmail.com</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Phone:</span>
@@ -33,12 +33,12 @@ const Single = () => {
                 <div className="detailItem">
                   <span className="itemKey">Address:</span>
                   <span className="itemValue">
-                    Elton St. 234 Garden Yd. NewYork
+                    1st Dai Co Viet, Hai Ba Trung, Ha Noi
                   </span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Country:</span>
-                  <span className="itemValue">USA</span>
+                  <span className="itemValue">Vietnam</span>
                 </div>
               </div>
             </div>
