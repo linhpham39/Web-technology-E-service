@@ -8,6 +8,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import format from 'date-fns/format'
 import {useNavigate} from 'react-router-dom'
 import { SearchContext } from '../../../context/SearchContext'
+import { AuthContext } from '../../../context/AuthContext'
 
 function Header({type}) {
     const [destination, setDestination] = useState(""); 
@@ -32,6 +33,8 @@ function Header({type}) {
     })
 
     const navigate = useNavigate()// chuyển hướng người dùng đến bất kì component nào trên bất kì page nào
+
+    const {user} = useContext(AuthContext);
 
     // Hàm handleOption để thay đổi số người và phòng khi click vào nút + và -
     //setOptions là hàm để cập nhật lại số người và phòng nhận 1 tham số là 1 object prev là giá trị trước đó
@@ -75,7 +78,9 @@ function Header({type}) {
                 </div>
                 {type!== "list" && 
                 <>      {/* JSX fragment */}
-                <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1><p className="headerDesc">Get reward for your travels- unlock instant savings of 10% or more with a free GTwelveBooking</p><button className="headerBtn">Sign in / Register</button><div className="headerSearch">
+                <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1><p className="headerDesc">Get reward for your travels- unlock instant savings of 10% or more with a free GTwelveBooking</p>
+                {!user && <button className="headerBtn">Sign in / Register</button>}
+                <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faCalendar} className='headerIcon' />
                         <input
