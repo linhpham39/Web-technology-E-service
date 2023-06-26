@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" modified="2023-06-26T03:50:15.578Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15" etag="0CtMlMdIr60nVfa8kvXD" version="21.5.0" type="github">
+  <diagram name="Page-1" id="5DnB4MEPiHaEmUkItMe6">
+    <mxGraphModel dx="333" dy="212" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qTtlIMXwMR0KXrrYJlJ4-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="630" height="425" as="geometry" />
+        </mxCell>
+        <mxCell id="qTtlIMXwMR0KXrrYJlJ4-3" value="Signed customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qTtlIMXwMR0KXrrYJlJ4-5" value="Unsigned customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=16;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="620" width="30" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
