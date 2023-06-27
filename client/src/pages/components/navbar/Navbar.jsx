@@ -2,19 +2,15 @@ import React, { useContext, useState } from 'react';
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from '../../../context/AuthContext';
-
 const Navbar = () => {
   const { user, setUser, dispatch } = useContext(AuthContext);
   const [logoutError, setLogoutError] = useState(null);
-
   const handleLogout = () => {
     setUser(null);
   };
-
   const handelClick = () => {
     dispatch({ type: "LOGOUT" });
   };
-
   return (
     <div className='navbar'>
       <div className="navContainer">
@@ -42,5 +38,4 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;
