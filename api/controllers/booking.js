@@ -28,3 +28,34 @@ export const booking = async (req, res, next) => {
     }
   };
   
+  export const payBooking = async (req, res, next) => {
+    //pay booking by paypal 
+    console.log('test');
+    var create_payment_json = {
+      "intent": "sale",
+      "payer": {
+          "payment_method": "paypal"
+      },
+      "redirect_urls": {
+          "return_url": "http://localhost:3000/booking",
+          "cancel_url": "http://localhost:3000/cancel"
+      },
+      "transactions": [{
+          "item_list": {
+              "items": [{
+                  "name": "item",
+                  "sku": "item",
+                  "price": "1.00",
+                  "currency": "USD",
+                  "quantity": 1
+              }]
+          },
+          "amount": {
+              "currency": "USD",
+              "total": "1.00"
+          },
+          "description": "This is the payment description."
+      }]
+  };
+  }
+    
