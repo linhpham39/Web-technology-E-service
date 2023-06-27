@@ -1,4 +1,4 @@
-.login {
+.register {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -14,14 +14,14 @@
     background-position: center;
   }
   
-  .login .LGcontainer {
+  .register .RGcontainer {
     width: 300px;
     height: 300px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.411);
   }
   
-  .login .LGcontainer .LGwrapper {
+  .register .RGcontainer .RGwrapper {
     width: 100%;
     height: 100%;
     display: flex;
@@ -30,26 +30,26 @@
     justify-content: space-evenly;
   }
   
-  .login .LGcontainer .LGwrapper .LGlogo {
+  .register .RGcontainer .RGwrapper .RGlogo {
     font-weight: 800;
     font-size: 20px;
   }
   
-  .login .LGcontainer .LGwrapper .LGform {
+  .register .RGcontainer .RGwrapper .RGform {
     width: 70%;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
   
-  .login .LGcontainer .LGwrapper .LGform input {
+  .register .RGcontainer .RGwrapper .RGform input {
     height: 25px;
     border-radius: 5px;
     outline: none;
     border: none;
   }
   
-  .login .LGcontainer .LGwrapper .LGbutton {
+  .register .RGcontainer .RGwrapper .RGbutton {
     color: white;
     background-color: teal;
     padding: 7px 22px;

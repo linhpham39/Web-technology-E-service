@@ -6,7 +6,7 @@ import "./header.css"
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import format from 'date-fns/format'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { SearchContext } from '../../../context/SearchContext'
 import { AuthContext } from '../../../context/AuthContext'
 
@@ -67,10 +67,13 @@ function Header({type}) {
                         <FontAwesomeIcon icon={faHouse} />
                         <span>Home</span>
                     </div>
-                    <div className="headerListItem">
+                    <Link to="/booking" style={{ color: "inherit", textDecoration: "none" }}>
+                        <div className="headerListItem">
                         <FontAwesomeIcon icon={faCalendarDays} />
-                        <span>Booking</span>
+                        <span>Your Booking</span>
                     </div>
+                    </Link>
+                    
                     <div className="headerListItem">
                         <FontAwesomeIcon icon={faCreditCard} />
                         <span>Payment</span>
@@ -78,8 +81,14 @@ function Header({type}) {
                 </div>
                 {type!== "list" && 
                 <>      {/* JSX fragment */}
-                <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1><p className="headerDesc">Get reward for your travels- unlock instant savings of 10% or more with a free GTwelveBooking</p>
-                {!user && <button className="headerBtn">Sign in / Register</button>}
+                <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1><p className="headerDesc">Get reward for your travels- unlock instant savings of 10% or more with a free LinhBooking</p>
+                
+                {!user && 
+                (
+                  <Link to="/login">
+                    <button className="headerBtn">Sign in / Register</button>
+                  </Link>
+                )}
                 <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faCalendar} className='headerIcon' />

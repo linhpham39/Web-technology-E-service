@@ -6,11 +6,14 @@ import useFetch from "../../../hooks/useFetch";
 import { SearchContext } from "../../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
 
 export const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
+  const[roomNum, setNum] = useState([]);
+  const {user} = useContext(AuthContext);
 
   
 
@@ -41,13 +44,22 @@ export const Reserve = ({ setOpen, hotelId }) => {
 
   const handleSelect = (e) => {
     const checked = e.target.checked;
-    const value = e.target.value;
+    const temp = e.target.value.split(",");
+    const value = temp[0];
+    const num = temp[1];
+    //const value = e.target.value;
     setSelectedRooms(
       checked
         ? [...selectedRooms, value]
         : selectedRooms.filter((item) => item !== value)
     );
+
+    setNum(
+        checked ? [...roomNum, num]:roomNum.filter((item)=>item !== num)
+      )
   };
+
+  
 
   const navigate = useNavigate()
 
@@ -61,9 +73,16 @@ export const Reserve = ({ setOpen, hotelId }) => {
           return res.data;
         })
       );
+      await axios.post(`/booking`,{
+        user: user._id,
+        room: roomNum,
+        hotel: hotelId,
+      })
       setOpen(false);
-      navigate("/");
-    } catch (err) {}
+      navigate("/booking");
+    } catch (err) {
+        console.log(err)
+    }
   };
 
   return (

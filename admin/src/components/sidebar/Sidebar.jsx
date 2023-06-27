@@ -84,7 +84,7 @@ const Sidebar = () => {
           </li>
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span>Sign out</span>
           </li>
         </ul>
       </div>
