@@ -1,27 +1,40 @@
-.featured{
+.featured {
     width: 100%;
     max-width: 1024px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
     z-index: 1;
-}
-
-.featuredItem{
+  }
+  
+  .featured .featuredItem {
     position: relative;
     color: white;
     border-radius: 10px;
     overflow: hidden;
     height: 250px;
-}
-
-.featuredImg{
+    flex: 1;
+    box-shadow: 5px 5px 10px gray;
+    cursor: pointer;
+  }
+  
+  .featured .featuredItem .featuredImg {
     width: 100%;
-    object-fit: cover;
-}
-
-.featuredTitles{
+    height: 100%;
+    object-fit: fill;
+    transition: all 0.4s ease;
+  }
+  
+  .featured .featuredItem:hover .featuredImg {
+    transform: scale(1.1);
+  }
+  
+  .featured .featuredItem .featuredTitles {
     position: absolute;
     bottom: 20px;
     left: 20px;
-}
+  }
+  
+  .featured .featuredItem .featuredTitles h1 {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }

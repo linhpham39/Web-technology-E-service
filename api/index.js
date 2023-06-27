@@ -7,7 +7,6 @@ import hotelsRoute from './routes/hotels.js';
 import roomsRoute from './routes/rooms.js';
 import bookingRoute from "./routes/booking.js";
 import cookieParser from 'cookie-parser';
-import paypal from 'paypal-rest-sdk';
 import cors from 'cors';
 const app = express();
 dotenv.config();
@@ -29,12 +28,6 @@ mongoose.connection.on('disconnected', () => {
 mongoose.connection.on('connected', () => {
     console.log('Mongoose connected');
 });
-
-paypal.configure({
-    'mode': 'sandbox', //sandbox 
-    'client_id': 'AaWHcf6L2lRW7426S1a_60FJ4lh6VThcNUfBeKRb5w4zOVquFRPIl7wsBmlBhInm5jEsm-w5E668QuJM',
-    'client_secret': 'EJtLcw-Cbys0fkLqNVdYpT_-PQh9bl11Ws7lX9JOtbTOsDb1ytxVl_cKPvYEDu95az6htb9iV1atAKOs'
-  });
 
 //middlewares
 //middleware for parsing json data from request body

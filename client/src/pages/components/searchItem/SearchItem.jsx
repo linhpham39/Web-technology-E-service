@@ -26,10 +26,14 @@ const SearchItem = ({item}) => {
         </span>
       </div>
       <div className="siDetails">
-        {item.rating && <div className="siRating">
+        <div className="siRating">
           <span>Excellent</span>
-          <button>{item.rating}</button>
-        </div>}
+          {/* <button>{item.rating}</button> */}
+          <button>
+            {Math.floor(Math.random() * 2) + 8}.
+            {Math.floor(Math.random() * 2) + 8}
+          </button>
+        </div>
         <div className="siDetailTexts">
           <span className="siPrice">${item.cheapestPrice}</span>
           <span className="siTaxOp">Includes taxes and fees</span>

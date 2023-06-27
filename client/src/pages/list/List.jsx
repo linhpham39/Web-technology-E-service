@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./list.css";
 import Navbar from "../components/navbar/Navbar";
 import Header from "../components/header/Header";
@@ -7,6 +7,7 @@ import format from "date-fns/format";
 import { DateRange } from "react-date-range";
 import SearchItem from "../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
+import { AuthContext } from "../../context/AuthContext";
 
 export const List = () => {
   //location lưu trữ các thông tin chuyển đến từ người dùng
@@ -18,6 +19,8 @@ export const List = () => {
   const [options, setOptions] = useState(location.state.options);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
+
+  const {user} = useContext(AuthContext)
 
   //search cụ thể khách sạn: giá, ...
   const {data, loading, error, reFetch} = useFetch(
