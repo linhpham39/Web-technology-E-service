@@ -12,7 +12,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
-  const[roomNum, setNum] = useState([]);
+  const [roomNum, setNum] = useState([]);
   const {user} = useContext(AuthContext);
 
   
@@ -44,10 +44,11 @@ export const Reserve = ({ setOpen, hotelId }) => {
 
   const handleSelect = (e) => {
     const checked = e.target.checked;
+    console.log(e.target.value)
     const temp = e.target.value.split(",");
     const value = temp[0];
     const num = temp[1];
-    //const value = e.target.value;
+    
     setSelectedRooms(
       checked
         ? [...selectedRooms, value]
@@ -55,9 +56,14 @@ export const Reserve = ({ setOpen, hotelId }) => {
     );
 
     setNum(
-        checked ? [...roomNum, num]:roomNum.filter((item)=>item !== num)
+        checked ? [...roomNum, num] : roomNum.filter((item) => item !== num)
       )
   };
+
+  //console.log(selectedRooms)
+  //console.log(roomNum)
+
+  
 
   
 
@@ -112,7 +118,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
                     <label>{roomNumber.number}</label>
                     <input
                       type="checkbox"
-                      value={roomNumber._id}
+                      value={[roomNumber._id, roomNumber.number]}
                       onChange={handleSelect}
                     disabled={!isAvailable(roomNumber)}
                     />
