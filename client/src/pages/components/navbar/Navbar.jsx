@@ -11,6 +11,7 @@ const Navbar = () => {
   const handelClick = () => {
     dispatch({ type: "LOGOUT" });
   };
+  
   return (
     <div className='navbar'>
       <div className="navContainer">
