@@ -18,6 +18,7 @@ export const List = () => {
   const [destination, setDestination] = useState(location.state.destination);
   const [dates, setDates] = useState(location.state.dates);
   const [type, setType] = useState(location.state.type)
+  const [name, setName] = useState(location.state.name)
   const [openDate, setopenDate] = useState(false); //để mở lịch or đóng lịch, state = false: đóng trước, khi click vào ms mở ra
   const [options, setOptions] = useState(location.state.options);
   const [min, setMin] = useState(undefined);
@@ -31,16 +32,19 @@ export const List = () => {
   //   )
 
   const queryParams = [];
-if (destination) {
-  queryParams.push(`city=${destination}`);
-}
-if (type) {
-  queryParams.push(`type=${type}`);
-}
-const queryString = queryParams.join('&');
-
-const { data, loading, error, reFetch } = useFetch(`/hotels?${queryString}&min=${min || 0}&max=${max || 999}`);
-
+  if (destination) {
+    queryParams.push(`city=${destination}`);
+  }
+  if (type) {
+    queryParams.push(`type=${type}`);
+  }
+  if (name) {
+    queryParams.push(`name=${name}`);
+  }
+  const queryString = queryParams.join('&');
+  
+  const { data, loading, error, reFetch } = useFetch(`/hotels?${queryString}&min=${min || 0}&max=${max || 999}`);
+  
 
   const handleClick = ()=>{
     reFetch()

@@ -11,6 +11,7 @@
     gap: 10px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
   }
   
   .fp .fpItem .fpImg {
@@ -43,5 +44,15 @@
   
   .fp .fpItem .fpRating span {
     font-size: 14px;
+  }
+  
+  /* Hover effect on the image */
+  .fp .fpItem:hover .fpImg {
+    transform: scale(1.1);
+  }
+  
+  /* Transition for the hover effect */
+  .fp .fpItem .fpImg {
+    transition: transform 0.3s ease;
   }
   
