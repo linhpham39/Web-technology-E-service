@@ -64,15 +64,6 @@ jobs:
           SSH_KEY_PATH: ${{ github.workspace }}/../private.key
 
 
-      - name: SSH to GGC
+      - name: SSH to GGC and pull new images
         run:
-          ssh -i $SSH_KEY_PATH linhnt.ict@34.143.146.31 "docker compose pull && docker compose down && docker compose up -d"
-
-      # - name: Pull latest images
-      #   run: docker-compose pull
-
-      # - name: Down old images
-      #   run: docker-compose down
-
-      # - name: Deploy with Docker Compose
-      #   run: docker-compose up -d
+          ssh -i $SSH_KEY_PATH linhnt.ict@34.143.146.31 "scp -i $SSH_KEY_PATH ./docker-compose.yml linhnt.ict@34.143.146.31:/home/linhnt.ict && docker compose pull && docker compose down && docker compose up -d"
