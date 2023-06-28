@@ -63,7 +63,7 @@ const Login = () => {
             Click here to{" "}
             <Link
               to="/register"
-              style={{ color: "blue", textDecoration: "underline blue" }}
+              style={{ color: "teal", textDecoration: "underline teal" }}
             >
               Register
             </Link>
