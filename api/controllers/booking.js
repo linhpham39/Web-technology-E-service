@@ -1,4 +1,5 @@
 import Booking from "../models/booking.js";
+//import { paypal } from "paypal-rest-sdk";
 export const booking = async (req, res, next) => {
     try {
       const newBooking = new Booking(req.body);
@@ -29,8 +30,9 @@ export const booking = async (req, res, next) => {
   };
   
   export const payBooking = async (req, res, next) => {
-    //pay booking by paypal 
-    console.log('test');
+    //pay booking by booking ID through paypal
+    const bookingId = req.params.id;
+    const booking = await Booking.findById(bookingId);
     var create_payment_json = {
       "intent": "sale",
       "payer": {
@@ -43,8 +45,7 @@ export const booking = async (req, res, next) => {
       "transactions": [{
           "item_list": {
               "items": [{
-                  "name": "item",
-                  "sku": "item",
+                  "name": `${booking.hotelName}`,
                   "price": "1.00",
                   "currency": "USD",
                   "quantity": 1
@@ -57,5 +58,14 @@ export const booking = async (req, res, next) => {
           "description": "This is the payment description."
       }]
   };
+  paypal.payment.create(create_payment_json, function (error, payment) {
+    if (error) {
+        throw error;
+    } else {
+        console.log("Create Payment Response");
+        console.log(payment);
+    }
+});
+
   }
     

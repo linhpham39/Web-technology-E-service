@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import useFetch from "../../../hooks/useFetch";
 import "./booking.css";
-
+import paypal from 'paypal-rest-sdk';
 export const Booking = ({ hotelId, roomId, name, b_id }) => {
   const { data, loading, error, reFetch } = useFetch(`/hotels/find/${hotelId}`);
 
@@ -12,6 +12,47 @@ export const Booking = ({ hotelId, roomId, name, b_id }) => {
     );
     window.location.reload(false);
   };
+
+  const payBooking = async () => {
+    //pay booking by booking ID through paypal
+    const booking = await axios.get(`/booking/${b_id}`);
+    console.log(booking);
+    /* var create_payment_json = {
+      "intent": "sale",
+      "payer": {
+          "payment_method": "paypal"
+      },
+      "redirect_urls": {
+          "return_url": "http://localhost:3000/booking",
+          "cancel_url": "http://localhost:3000/cancel"
+      },
+      "transactions": [{
+          "item_list": {
+              "items": [{
+                  "name": `${booking.hotelName}`,
+                  "price": `${booking.price}`,
+                  "currency": "USD",
+                  "quantity": 1
+              }]
+          },
+          "amount": {
+              "currency": "USD",
+              "total": "1.00"
+          },
+          "description": "This is the payment description."
+      }]
+  };
+  paypal.payment.create(create_payment_json, function (error, payment) {
+    if (error) {
+        throw error;
+    } else {
+        console.log("Create Payment Response");
+        console.log(payment);
+    }
+});
+ */
+  }
+    
 
   return (
     <div className="booking">

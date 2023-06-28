@@ -41,7 +41,7 @@ const Login = () => {
           <div className="LGform">
             <input
               type="text"
-              placeholder="nhập username ở đây nè"
+              placeholder="Enter user name"
               id="username"
               onChange={handleChange}
               className="lInput"
