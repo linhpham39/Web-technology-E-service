@@ -88,3 +88,5 @@ export const Booking = ({ hotelId, roomId, name, b_id }) => {
     </div>
   );
 };
+
+export default Booking

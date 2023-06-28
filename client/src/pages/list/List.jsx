@@ -8,6 +8,8 @@ import { DateRange } from "react-date-range";
 import SearchItem from "../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
 import { AuthContext } from "../../context/AuthContext";
+import MailList from "../components/mailList/MailList";
+import Footer from "../components/footer/Footer";
 
 export const List = () => {
   //location lưu trữ các thông tin chuyển đến từ người dùng
@@ -15,6 +17,8 @@ export const List = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
   const [dates, setDates] = useState(location.state.dates);
+  const [type, setType] = useState(location.state.type)
+  const [name, setName] = useState(location.state.name)
   const [openDate, setopenDate] = useState(false); //để mở lịch or đóng lịch, state = false: đóng trước, khi click vào ms mở ra
   const [options, setOptions] = useState(location.state.options);
   const [min, setMin] = useState(undefined);
@@ -23,9 +27,24 @@ export const List = () => {
   const {user} = useContext(AuthContext)
 
   //search cụ thể khách sạn: giá, ...
-  const {data, loading, error, reFetch} = useFetch(
-    `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
-    )
+  // const {data, loading, error, reFetch} = useFetch(
+  //   `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}&type`
+  //   )
+
+  const queryParams = [];
+  if (destination) {
+    queryParams.push(`city=${destination}`);
+  }
+  if (type) {
+    queryParams.push(`type=${type}`);
+  }
+  if (name) {
+    queryParams.push(`name=${name}`);
+  }
+  const queryString = queryParams.join('&');
+  
+  const { data, loading, error, reFetch } = useFetch(`/hotels?${queryString}&min=${min || 0}&max=${max || 999}`);
+  
 
   const handleClick = ()=>{
     reFetch()
@@ -115,6 +134,11 @@ export const List = () => {
           </div>
         </div>
       </div>
+      <MailList />
+      <div className="footer">
+        <Footer />
+      </div>
+          
     </div>
   );
 };

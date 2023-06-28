@@ -61,12 +61,12 @@ export const Register = () => {
           {error && <span style={{ color: "red" }}>{errorMsg}</span>}
           {loading && <span>Please Wait...</span>}
           <div style={{ fontSize: "14px", color: "grey" }}>
-            Already registered, Click here to
+            Already registered! Click here to{" "}    
             <Link
               to="/login"
-              style={{ color: "blue", textDecoration: "underline blue" }}
+              style={{ color: "teal", textDecoration: "underline teal" }}
             >
-              Login
+            Login
             </Link>
           </div>
         </div>

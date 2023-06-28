@@ -1,6 +1,7 @@
 .listContainer {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
   padding-top: 20px;
   background-color: WHITE;
 }
@@ -83,3 +84,9 @@
 .listResult {
   flex: 3;
 }
+
+.footer {
+    margin-left: 140px;
+  }
+  
+  

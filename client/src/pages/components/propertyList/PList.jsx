@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import useFetch from '../../../hooks/useFetch'
 import "./pList.css"
+import { useNavigate } from 'react-router-dom';
+import { SearchContext } from '../../../context/SearchContext';
 
 const PList = () => {
   const { data, loading, error } = useFetch("/hotels/countByType");
@@ -13,6 +15,32 @@ const PList = () => {
 
   ]
 
+  const[dates, setDates] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    }
+  ]);
+  const [options, setOptions] = useState({
+    adult: 1,
+    childrens: 0,
+    rooms: 1,
+  });
+  //const { datas, loadings, errors } = useFetch("/hotels/countByCity?cities=marid,london,Berlin");
+  const navigate = useNavigate();
+  const{dispatch} = useContext(SearchContext);
+
+  const handleClick = (type)=>{
+    dispatch({type:"NEW_SEARCH", payload:{dates, options}})
+    navigate("/hotels", {state:{  dates, options, type}}) // gửi destination, date, options đến trang hotels
+    console.log(type)
+}
+
+
+
+
+
   return (
     <div className="pList">
       {loading ? (
@@ -21,9 +49,11 @@ const PList = () => {
         <>
           {data &&
             images.map((img, index) => (
-              <div className="pListItem" key={index}>
+              
+              <div className="pListItem" key={index} onClick={() => handleClick(data[index].type)}
+              >
                 <img src={img} alt="" className="pListImg" />
-                <div className="pListTitles">
+                <div className="pListTitles" >
                   {data[index] && (
                     <>
                       <h1>{data[index].type}</h1>

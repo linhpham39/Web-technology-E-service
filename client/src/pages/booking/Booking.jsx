@@ -4,7 +4,8 @@ import { AuthContext } from "../../context/AuthContext";
 import useFetch from "../../hooks/useFetch";
 import "./booking.css";
 import { Booking } from "../components/Booking/Booking";
-import paypal from 'paypal-rest-sdk';
+import paypal from 'paypal-rest-sdk';import Header from "../components/header/Header";
+
 
 
 export const Bookings = () => {
@@ -22,6 +23,7 @@ export const Bookings = () => {
     return (
       <div className="bookings">
         <Navbar/>
+        <Header type="list" />
         <div className="Bcontainer">
           <h1>Your bookings</h1>
           {loading ? (
