@@ -2,7 +2,7 @@ version: "3.3"
 services:
       
   api:
-    build: ./api
+    image: liinhhnt/web-api
     container_name: api
     networks:
       - client-api
@@ -13,24 +13,22 @@ services:
   client:
     depends_on:
       - "api"
-    build:
-      context: ./client
+    image: liinhhnt/web-client
     container_name: client
     networks:
       - client-api
     ports:
-      - 3000:3000
+      - 3123:3000
 
   admin:
     depends_on:
       - "api"
-    build:
-      context: ./admin
+    image: liinhhnt/web-admin
     container_name: admin
     networks:
       - admin-api
     ports:
-      - 3001:3000
+      - 3124:3000
 networks:
   client-api:
   admin-api:
