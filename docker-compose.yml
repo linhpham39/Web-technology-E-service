@@ -1,0 +1,36 @@
+version: "3.3"
+services:
+      
+  api:
+    build: ./api
+    container_name: api
+    networks:
+      - client-api
+      - admin-api
+    ports:
+      - 8000:8000
+
+  # client:
+  #   depends_on:
+  #     - "api"
+  #   build:
+  #     context: ./client
+  #   container_name: client
+  #   networks:
+  #     - client-api
+  #   ports:
+  #     - 3000:3000
+
+  admin:
+    depends_on:
+      - "api"
+    build:
+      context: ./admin
+    container_name: admin
+    networks:
+      - admin-api
+    ports:
+      - 3001:3001
+networks:
+  client-api:
+  admin-api:
