@@ -1,6 +1,6 @@
 .navbar{
     height: 50px;
-    background-color: #0671B7;
+    background-color: teal;
     display: flex;
     justify-content: center;
 }
@@ -20,7 +20,7 @@
 }
 
 .navButton{
-    color: #0671B7;
+    color: teal;
     border: none;
     margin-left: 20px;
     font-size: 16px;

@@ -21,7 +21,7 @@
     right: 0;
     border:none;
     padding: 10px 20px;
-    background-color: #0071c2;
+    background-color: teal;
     color: white;
     font-weight: bold;
     border-radius: 5px;
@@ -30,6 +30,7 @@
 
 .hotelTitle{
     font-size: 24px;
+    color: rgb(5, 96, 96);
 }
 
 .hotelAddress{
@@ -40,7 +41,7 @@
 }
 
 .hotelDistance{
-    color: #0071c2;
+    color: teal;
     font-weight: 500;
 }
 
@@ -105,7 +106,7 @@
 .hotelDetailsPrice>button{
     border: none;
     padding: 10px 20px;
-    background-color: #0071c2;
+    background-color: teal;
     color: white;
     font-weight: bold;
     border-radius: 5px;

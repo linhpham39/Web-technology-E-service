@@ -3,7 +3,7 @@ import React from "react";
 import useFetch from "../../../hooks/useFetch";
 import "./booking.css";
 import paypal from 'paypal-rest-sdk';
-export const Booking = ({ hotelId, roomId, name, b_id }) => {
+export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
   const { data, loading, error, reFetch } = useFetch(`/hotels/find/${hotelId}`);
 
   const handelClick = async () => {
@@ -12,6 +12,15 @@ export const Booking = ({ hotelId, roomId, name, b_id }) => {
     );
     window.location.reload(false);
   };
+
+
+//   const convertedPrices = price.map(price => parseInt(price, 10));
+  
+//   const totalPrice = convertedPrices.reduce((sum, currentPrice) => sum + currentPrice, 0);
+  
+//   console.log(totalPrice);
+  
+
 
   const payBooking = async () => {
     //pay booking by booking ID through paypal
@@ -74,6 +83,12 @@ export const Booking = ({ hotelId, roomId, name, b_id }) => {
                     {roomId.map((item, i) => (
                       <span key={i}>{item} </span>
                     ))}
+                  </div>
+                </div>
+                <div className="price">
+                  <h4>Total price:</h4>
+                  <div className="nprice">
+                  <span>{price}</span>
                   </div>
                 </div>
                 <div className="cancel">

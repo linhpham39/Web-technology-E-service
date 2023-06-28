@@ -14,6 +14,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
   const { dates } = useContext(SearchContext);
   const [roomNum, setNum] = useState([]);
   const {user} = useContext(AuthContext);
+  const [roomPrice, setPrice] = useState([]);
 
   
 
@@ -48,6 +49,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
     const temp = e.target.value.split(",");
     const value = temp[0];
     const num = temp[1];
+    const price = temp[2];
     
     setSelectedRooms(
       checked
@@ -58,10 +60,25 @@ export const Reserve = ({ setOpen, hotelId }) => {
     setNum(
         checked ? [...roomNum, num] : roomNum.filter((item) => item !== num)
       )
+
+    setPrice(
+        checked ? [...roomPrice, price] : roomPrice.filter((item) => item !== price)
+      )
   };
 
-  //console.log(selectedRooms)
-  //console.log(roomNum)
+  console.log(selectedRooms)
+  console.log(roomNum)
+  console.log(roomPrice)
+
+  
+
+  
+  const convertedPrices = roomPrice.map(price => parseInt(price, 10));
+  
+  const totalPrice = convertedPrices.reduce((sum, currentPrice) => sum + currentPrice, 0);
+  
+  console.log(totalPrice);
+
 
   
 
@@ -83,6 +100,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
         user: user._id,
         room: roomNum,
         hotel: hotelId,
+        price: totalPrice,
       })
       setOpen(false);
       navigate("/booking");
@@ -118,7 +136,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
                     <label>{roomNumber.number}</label>
                     <input
                       type="checkbox"
-                      value={[roomNumber._id, roomNumber.number]}
+                      value={[roomNumber._id, roomNumber.number, item.price]}
                       onChange={handleSelect}
                     disabled={!isAvailable(roomNumber)}
                     />

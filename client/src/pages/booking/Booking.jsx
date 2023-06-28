@@ -14,6 +14,8 @@ export const Bookings = () => {
     const { data, error, loading } = useFetch(
       `/booking?id=${user._id}`
     );
+
+    console.log(data)
     paypal.configure({
       'mode': 'sandbox', //sandbox 
       'client_id': 'AaWHcf6L2lRW7426S1a_60FJ4lh6VThcNUfBeKRb5w4zOVquFRPIl7wsBmlBhInm5jEsm-w5E668QuJM',
@@ -37,6 +39,8 @@ export const Bookings = () => {
                   name={user.username}
                   key={i}
                   b_id={data[i]._id}
+                  price={item.price}
+                //   price={item.price}
                 />
               ))}
             </div>
