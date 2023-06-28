@@ -66,9 +66,9 @@ jobs:
 
       - name: SSH to GGC and pull new images
         run: 
-          ssh -i ../private.key linhnt.ict@34.143.146.31
-          # |
-          # ssh -i $SSH_KEY_PATH linhnt.ict@34.143.146.31 "scp -i $SSH_KEY_PATH ./docker-compose.yml linhnt.ict@34.143.146.31:/home/linhnt.ict"
-          # ssh -i $SSH_KEY_PATH linhnt.ict@34.143.146.31 "docker-compose pull"
-          # ssh -i $SSH_KEY_PATH linhnt.ict@34.143.146.31 "docker-compose down"
-          # ssh -i $SSH_KEY_PATH linhnt.ict@34.143.146.31 "docker-compose up -d"
+          # ssh -i ../private.key linhnt.ict@34.143.146.31
+          |
+          ssh -i ../private.key linhnt.ict@34.143.146.31 "scp -i ../private.key ./docker-compose.yml linhnt.ict@34.143.146.31:/home/linhnt.ict"
+          ssh -i ../private.key linhnt.ict@34.143.146.31 "docker-compose pull"
+          ssh -i ../private.key linhnt.ict@34.143.146.31 "docker-compose down"
+          ssh -i ../private.key linhnt.ict@34.143.146.31 "docker-compose up -d"
