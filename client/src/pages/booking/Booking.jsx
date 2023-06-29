@@ -12,7 +12,7 @@ export const Bookings = () => {
     const { user } = useContext(AuthContext);
   
     const { data, error, loading } = useFetch(
-      `/booking/user?id=${user._id}`
+      `/booking/user/${user._id}`
     );
 
     console.log(data)
