@@ -11,7 +11,7 @@ const Navbar = () => {
   const handelClick = () => {
     dispatch({ type: "LOGOUT" });
   };
-  
+
   return (
     <div className='navbar'>
       <div className="navContainer">
@@ -20,6 +20,7 @@ const Navbar = () => {
         </Link>
         {user ? (
           <div className="navItems">
+            <img className='userImg' src={user.img} alt="" />
             <span className="username">{user.username}</span>
             <Link to="/"> <button className="navButton" onClick={handelClick}>Sign out</button></Link>
             {/* <button className="navButton" onClick={handelClick}>Sign Out</button> */}
@@ -27,12 +28,12 @@ const Navbar = () => {
         ) : (
           <div className="navItems">
             <Link to="/login">
-            <button className="navButton">Login</button>
+              <button className="navButton">Login</button>
             </Link>
             <Link to="/register">
-            <button className="navButton">Register</button>
+              <button className="navButton">Register</button>
             </Link>
-            
+
           </div>
         )}
       </div>

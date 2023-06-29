@@ -1,11 +1,11 @@
-.navbar{
+.navbar {
     height: 50px;
     background-color: teal;
     display: flex;
     justify-content: center;
 }
 
-.navContainer{
+.navContainer {
     width: 100%;
     max-width: 1024px;
     color: white;
@@ -14,12 +14,12 @@
     justify-content: space-between;
 }
 
-.logo{
+.logo {
     font-weight: 600;
     font-size: 20PX;
 }
 
-.navButton{
+.navButton {
     color: teal;
     border: none;
     margin-left: 20px;
@@ -28,4 +28,16 @@
     border-radius: 5px;
     cursor: pointer;
 
+}
+
+.navItems {
+    position: relative;
+}
+
+.userImg {
+    position: absolute;
+    height: 100%;
+    width: 2.2rem;
+    right: 105%;
+    border-radius: 50%;
 }
