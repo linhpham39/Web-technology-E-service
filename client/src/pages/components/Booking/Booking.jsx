@@ -2,9 +2,7 @@ import axios from "axios";
 import React from "react";
 import useFetch from "../../../hooks/useFetch";
 import "./booking.css";
-import { loadStripe } from "@stripe/stripe-js";
-import PaymentForm from "../payment/PaymentForm";
-import { Elements } from "@stripe/react-stripe-js";
+import { useState } from "react";
 import StripeContainer from "../payment/StripeContainer";
 
 export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
