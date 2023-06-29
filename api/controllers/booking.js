@@ -20,7 +20,7 @@ export const booking = async (req, res, next) => {
   };
   
   export const getBookings = async (req, res, next) => {
-    const userId = req.query.id;
+    const userId = req.params.id;
     try {
       const book = await Booking.find({ user: userId });
       res.status(200).json(book);
