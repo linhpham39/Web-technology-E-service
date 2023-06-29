@@ -7,6 +7,5 @@ router.delete("/:id", cancelBooking);
 router.get("/", getBookings);
 router.get("/user/:id", getBookings);
 router.get("/:id", getBooking);
-
 router.post("/payment", paymentBooking);
 export default router;

@@ -4,7 +4,6 @@ import { AuthContext } from "../../context/AuthContext";
 import useFetch from "../../hooks/useFetch";
 import "./booking.css";
 import { Booking } from "../components/Booking/Booking";
-import paypal from 'paypal-rest-sdk';
 import Header from "../components/header/Header";
 
 
