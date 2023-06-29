@@ -2,9 +2,10 @@ import axios from "axios";
 import React from "react";
 import useFetch from "../../../hooks/useFetch";
 import "./booking.css";
-import {loadStripe} from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import PaymentForm from "../payment/PaymentForm";
-import {Elements} from "@stripe/react-stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import StripeContainer from "../payment/StripeContainer";
 
 export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
   const { data, loading, error, reFetch } = useFetch(`/hotels/find/${hotelId}`);
@@ -22,10 +23,7 @@ export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
   //   const totalPrice = convertedPrices.reduce((sum, currentPrice) => sum + currentPrice, 0);
 
   //   console.log(totalPrice);
-
-  const PUBLIC_KEY = 'pk_test_51NO3EwGJKXpqwm9HFCFl7NV9HSTnQt9g5AXNm3wSZr9ahxmDvixKu64B90sOwNBT5STZ5pWstiG2bD0LoKE9cxQ000aeL3vBW5';
-  const stripeTestPromise = loadStripe(PUBLIC_KEY);
-
+  const [showItem, setShowItem] = useState(false);
 
 
   return (
@@ -60,9 +58,13 @@ export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
                 <button className="payment">Pay Booking</button>
                 <button className="cancel" onClick={handelClick}>Cancel Booking</button>
               </div>
-              <Elements stripe={stripeTestPromise}>
-                <PaymentForm />
-              </Elements>
+              {showItem ? (
+                <StripeContainer />
+              ) : (
+                <>
+                  <button onClick={() => setShowItem(true)}>Paybooking</button>
+                </>
+              )}
               <p>
                 By clicking on this button you will loose your reservation
               </p>
