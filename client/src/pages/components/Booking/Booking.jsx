@@ -2,7 +2,10 @@ import axios from "axios";
 import React from "react";
 import useFetch from "../../../hooks/useFetch";
 import "./booking.css";
-import paypal from 'paypal-rest-sdk';
+import {loadStripe} from "@stripe/stripe-js";
+import PaymentForm from "../payment/PaymentForm";
+import {Elements} from "@stripe/react-stripe-js";
+
 export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
   const { data, loading, error, reFetch } = useFetch(`/hotels/find/${hotelId}`);
 
@@ -14,92 +17,58 @@ export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
   };
 
 
-//   const convertedPrices = price.map(price => parseInt(price, 10));
-  
-//   const totalPrice = convertedPrices.reduce((sum, currentPrice) => sum + currentPrice, 0);
-  
-//   console.log(totalPrice);
-  
+  //   const convertedPrices = price.map(price => parseInt(price, 10));
+
+  //   const totalPrice = convertedPrices.reduce((sum, currentPrice) => sum + currentPrice, 0);
+
+  //   console.log(totalPrice);
+
+  const PUBLIC_KEY = 'pk_test_51NO3EwGJKXpqwm9HFCFl7NV9HSTnQt9g5AXNm3wSZr9ahxmDvixKu64B90sOwNBT5STZ5pWstiG2bD0LoKE9cxQ000aeL3vBW5';
+  const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 
-  const payBooking = async () => {
-    //pay booking by booking ID through paypal
-    const booking = await axios.get(`/booking/${b_id}`);
-    console.log(booking);
-    /* var create_payment_json = {
-      "intent": "sale",
-      "payer": {
-          "payment_method": "paypal"
-      },
-      "redirect_urls": {
-          "return_url": "http://localhost:3000/booking",
-          "cancel_url": "http://localhost:3000/cancel"
-      },
-      "transactions": [{
-          "item_list": {
-              "items": [{
-                  "name": `${booking.hotelName}`,
-                  "price": `${booking.price}`,
-                  "currency": "USD",
-                  "quantity": 1
-              }]
-          },
-          "amount": {
-              "currency": "USD",
-              "total": "1.00"
-          },
-          "description": "This is the payment description."
-      }]
-  };
-  paypal.payment.create(create_payment_json, function (error, payment) {
-    if (error) {
-        throw error;
-    } else {
-        console.log("Create Payment Response");
-        console.log(payment);
-    }
-});
- */
-  }
-    
 
   return (
     <div className="booking">
       {loading
         ? "Loading please wait"
         : data && (
-            <div className="box">
-              <div className="leftB">
-                <img src={data.photos ? data.photos[0] : "https://images.unsplash.com/photo-1635548166842-bf67bacbefaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"} alt="" />
-                <div className="desc">
-                  <h3>{data.name}</h3>
-                  <p>{data.address}</p>
-                </div>
-              </div>
-              <div className="rightB">
-                <div className="num">
-                  <h4>Room Numbers:</h4>
-                  <div className="rn">
-                    {roomId.map((item, i) => (
-                      <span key={i}>{item} </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="price">
-                  <h4>Total price:</h4>
-                  <div className="nprice">
-                  <span>{price}</span>
-                  </div>
-                </div>
-                <div className="cancel">
-                  <button onClick={handelClick}>Cancel Booking</button>
-                  <p>
-                    By clicking on this button you will loose your reservation
-                  </p>
-                </div>
+          <div className="box">
+            <div className="leftB">
+              <img src={data.photos ? data.photos[0] : "https://images.unsplash.com/photo-1635548166842-bf67bacbefaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"} alt="" />
+              <div className="desc">
+                <h3>{data.name}</h3>
+                <p>{data.address}</p>
               </div>
             </div>
-          )}
+            <div className="rightB">
+              <div className="num">
+                <h4>Room Numbers:</h4>
+                <div className="rn">
+                  {roomId.map((item, i) => (
+                    <span key={i}>{item} </span>
+                  ))}
+                </div>
+              </div>
+              <div className="price">
+                <h4>Total price:</h4>
+                <div className="nprice">
+                  <span>{price}</span>
+                </div>
+              </div>
+              <div className="clickButton">
+                <button className="payment">Pay Booking</button>
+                <button className="cancel" onClick={handelClick}>Cancel Booking</button>
+              </div>
+              <Elements stripe={stripeTestPromise}>
+                <PaymentForm />
+              </Elements>
+              <p>
+                By clicking on this button you will loose your reservation
+              </p>
+            </div>
+          </div>
+        )}
     </div>
   );
 };

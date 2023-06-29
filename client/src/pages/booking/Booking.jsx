@@ -12,15 +12,10 @@ export const Bookings = () => {
     const { user } = useContext(AuthContext);
   
     const { data, error, loading } = useFetch(
-      `/booking?id=${user._id}`
+      `/booking/user?id=${user._id}`
     );
 
     console.log(data)
-    paypal.configure({
-      'mode': 'sandbox', //sandbox 
-      'client_id': 'AaWHcf6L2lRW7426S1a_60FJ4lh6VThcNUfBeKRb5w4zOVquFRPIl7wsBmlBhInm5jEsm-w5E668QuJM',
-      'client_secret': 'EJtLcw-Cbys0fkLqNVdYpT_-PQh9bl11Ws7lX9JOtbTOsDb1ytxVl_cKPvYEDu95az6htb9iV1atAKOs'
-    });
    
     return (
       <div className="bookings">
