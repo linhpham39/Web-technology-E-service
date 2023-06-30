@@ -40,7 +40,7 @@ export const updateRoomAvailability = async (req, res, next) => {
       await Room.updateOne(
         { "roomNumbers._id": req.params.id },
         {
-          $push: {
+          $pull: {
             "roomNumbers.$.unavailableDates": req.body.dates
           },
         }
@@ -50,6 +50,23 @@ export const updateRoomAvailability = async (req, res, next) => {
       next(err);
     }
 }
+
+export const deleteRoomAvailability = async (req, res, next) => {
+    try {
+      await Room.updateOne(
+        { "roomNumbers._id": req.params.id },
+        {
+          $pull: {
+            "roomNumbers.$.unavailableDates": req.body.date,
+          },
+        }
+      );
+      res.status(200).json("Ngày đã được xóa thành công.");
+    } catch (err) {
+      next(err);
+    }
+  };
+  
 
 export const deleteRoom = async(req, res, next) => {
     const hotelId = req.params.hotelId;
@@ -67,6 +84,11 @@ export const deleteRoom = async(req, res, next) => {
         next(err);
     }
 }
+
+
+
+
+
 
 export const getRoom = async(req, res, next) => {
     try {
