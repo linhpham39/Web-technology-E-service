@@ -46,7 +46,6 @@ export const getBooking = async (req, res, next) => {
 export const paymentBooking = async (req, res) => {
   let { amount, id } = req.body
 	try {
-    console.log(stripe);
 		const payment = await stripe.paymentIntents.create({
 			amount,
 			currency: "USD",
