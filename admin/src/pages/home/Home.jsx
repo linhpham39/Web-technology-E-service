@@ -8,7 +8,7 @@ const Home = () => {
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
-        Welcome to Admin Dashboard
+        {/* Welcome to Admin Dashboard */}
       </div>
     </div>
   );
