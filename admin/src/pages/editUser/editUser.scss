@@ -1,0 +1,55 @@
+.editContainer {
+    margin: 5rem;
+
+    .editTitle {
+        text-align: center;
+    }
+
+    .editForm {
+        display: flex;
+        justify-content: space-evenly;
+
+        .editImg {
+            flex: 1;
+            width: 10rem;
+
+
+        }
+
+        .editInput {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            gap: 1rem;
+            margin-right: 10px;
+
+            input {
+                padding: 0.5rem;
+                border-radius: 5px;
+                width: 60%;
+            }
+
+            button {
+                all: unset;
+                border: 2px solid black;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: bold;
+                margin: 0 2rem;
+                width: 30%;
+                cursor: pointer;    
+            }
+
+            .saveBtn {
+                border-color: green;
+                color: green;
+                text-align: center;
+            }
+
+
+
+        }
+    }
+}

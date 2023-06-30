@@ -1,0 +1,8 @@
+curl -v -X GET https://api-m.sandbox.paypal.com/v2/payments/authorizations/80W284485P519543T \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer A21AAKhyVf9m5n72tA4WCKIH_Lbzv0CUS3Qn05NaJKGJnbWBrRPLV1NVjNpFMLBX1pexSKWfKxB0LAQIpkeXq8eeTmYGjQwMw'  
+
+
+# 80W284485P519543T
+# A21AAKhyVf9m5n72tA4WCKIH_Lbzv0CUS3Qn05NaJKGJnbWBrRPLV1NVjNpFMLBX1pexSKWfKxB0LAQIpkeXq8eeTmYGjQwMw
+# curl -v -X POST "https://api-m.sandbox.paypal.com/v1/oauth2/token"    -u "AaWHcf6L2lRW7426S1a_60FJ4lh6VThcNUfBeKRb5w4zOVquFRPIl7wsBmlBhInm5jEsm-w5E668QuJM:EJtLcw-Cbys0fkLqNVdYpT_-PQh9bl11Ws7lX9JOtbTOsDb1ytxVl_cKPvYEDu95az6htb9iV1atAKOs"    -H "Content-Type: application/x-www-form-urlencoded"    -d "grant_type=client_credentials"
