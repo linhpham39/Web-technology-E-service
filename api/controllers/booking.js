@@ -1,5 +1,8 @@
 import Booking from "../models/booking.js";
-//import { paypal } from "paypal-rest-sdk";
+ import Stripe from "stripe";
+//import stripe from "stripe"(process.env.STRIPE_SECRET_TEST)
+const stripe= new Stripe("sk_test_51NO3EwGJKXpqwm9HWEBF3MFs2MN4OWR5COucSAoInuksEYeVLHGoRqkQmQgcQE4DHJvN6CvlbtaZx8mtRc4Xq3DW00iNlCagNn")
+
 export const booking = async (req, res, next) => {
     try {
       const newBooking = new Booking(req.body);
@@ -43,6 +46,7 @@ export const getBooking = async (req, res, next) => {
 export const paymentBooking = async (req, res) => {
   let { amount, id } = req.body
 	try {
+    console.log(stripe);
 		const payment = await stripe.paymentIntents.create({
 			amount,
 			currency: "USD",

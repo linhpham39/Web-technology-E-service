@@ -7,12 +7,11 @@ import hotelsRoute from './routes/hotels.js';
 import roomsRoute from './routes/rooms.js';
 import bookingRoute from "./routes/booking.js";
 import cookieParser from 'cookie-parser';
-import stripe from 'stripe';
 import cors from 'cors';
 
 const app = express();
 dotenv.config();
-stripe(process.env.STRIPE_SECRET_TEST)
+
 
 
 //connect to database

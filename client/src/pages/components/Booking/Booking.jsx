@@ -14,13 +14,6 @@ export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
     );
     window.location.reload(false);
   };
-
-
-  //   const convertedPrices = price.map(price => parseInt(price, 10));
-
-  //   const totalPrice = convertedPrices.reduce((sum, currentPrice) => sum + currentPrice, 0);
-
-  //   console.log(totalPrice);
   const [showItem, setShowItem] = useState(false);
 
 
