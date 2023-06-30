@@ -93,10 +93,7 @@ function Header({ type }) {
             </div>
           </Link>
 
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCreditCard} />
-            <span>Payment</span>
-          </div>
+          
         </div>
         {type !== "list" && (
           <>

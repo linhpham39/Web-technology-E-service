@@ -30,6 +30,6 @@
     "mongoose": "^7.1.0",
     "nodemon": "^2.0.22",
     "paypal-rest-sdk": "^1.8.1",
-    "stripe": "^12.10.0"
+    "stripe": "^12.11.0"
   }
 }
