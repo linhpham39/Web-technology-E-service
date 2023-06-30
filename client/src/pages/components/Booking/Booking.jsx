@@ -57,7 +57,7 @@ export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
                   <button className="payment" onClick={() => setShowItem(true)}>Pay booking</button>
                 </>
               )}
-              <p>
+              <p className="msgAlert">
                 By clicking on cancel button you will loose your reservation
               </p>
               </div>
