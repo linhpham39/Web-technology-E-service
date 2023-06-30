@@ -23,7 +23,7 @@ const CARD_OPTIONS = {
 	}
 }
 
-export default function PaymentForm() {
+export default function PaymentForm({amount}) {
     const [success, setSuccess ] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
@@ -42,7 +42,7 @@ export default function PaymentForm() {
             const {id} = paymentMethod
             console.log(id, paymentMethod);
             const response = await axios.post(`/booking/payment`, {
-                amount: 1000,
+                amount: amount * 100,
                 id
             })
             console.log('this is response from servser:',response);

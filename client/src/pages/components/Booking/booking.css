@@ -1,7 +1,7 @@
 .booking {
   width: 100%;
   max-width: 1024px;
-  height: 200px;
+  height: 235px;
   background-color: rgb(218, 218, 218);
   border-radius: 10px;
   padding: 10px;
@@ -41,23 +41,32 @@
   width: 900px;
 }
 
-.booking .box .rightB .cancel {
+/* .booking .box .rightB .cancelButton {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+} */
 
-.booking .box .rightB .cancel button {
+.booking .box .rightB .cancel {
   border: none;
   background: red;
   color: white;
-  padding: 10px;
+  padding: 7px;
   width: 50%;
   border-radius: 10px;
   cursor: pointer;
 }
 
-.booking .box .rightB .cancel p {
-  font-weight: bold;
-  font-size: 15px;
+.booking .box .rightB .payment {
+  border: none;
+  background: rgb(13, 207, 26);
+  color: white;
+  padding: 7px;
+  width: 50%;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.booking .box .rightB .msgAlert{
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
 }

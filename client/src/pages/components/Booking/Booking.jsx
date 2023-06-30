@@ -45,18 +45,20 @@ export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
                   <span>{price}</span>
                 </div>
               </div>
-              <div className="clickButton">
+              <div className="ButtonContainer">
                 <button className="cancel" onClick={handelClick}>Cancel Booking</button>
               
               {showItem ? (
-                <StripeContainer />
+                <StripeContainer
+                  amount = {price}
+                />
               ) : (
                 <>
-                  <button onClick={() => setShowItem(true)}>Paybooking</button>
+                  <button className="payment" onClick={() => setShowItem(true)}>Pay booking</button>
                 </>
               )}
               <p>
-                By clicking on this button you will loose your reservation
+                By clicking on cancel button you will loose your reservation
               </p>
               </div>
             </div>
