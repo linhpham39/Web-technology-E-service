@@ -78,7 +78,7 @@ function App() {
                 path="new"
                 element={
                   <ProtectedRoute>
-                    <EditUser />
+                    <NewHotel />
                   </ProtectedRoute>
                 }
               />
