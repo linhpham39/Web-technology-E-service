@@ -4,6 +4,7 @@ services:
   api:
     image: liinhhnt/web-api
     container_name: api
+    restart: unless-stopped
     networks:
       - client-api
       - admin-api
@@ -15,6 +16,7 @@ services:
       - "api"
     image: liinhhnt/web-client
     container_name: client
+    restart: unless-stopped
     networks:
       - client-api
     ports:
@@ -24,6 +26,7 @@ services:
     depends_on:
       - "api"
     image: liinhhnt/web-admin
+    restart: unless-stopped
     container_name: admin
     networks:
       - admin-api
