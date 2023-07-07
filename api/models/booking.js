@@ -16,6 +16,10 @@ const bookingSchema = new mongoose.Schema({
   price: {
     type: Number,
   },
+  isPaid: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 export default mongoose.model("Booking", bookingSchema);

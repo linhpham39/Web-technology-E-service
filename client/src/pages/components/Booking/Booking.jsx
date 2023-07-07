@@ -5,9 +5,10 @@ import "./booking.css";
 import { useState } from "react";
 import StripeContainer from "../payment/StripeContainer";
 
-export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
+export const Booking = ({ hotelId, roomId, name, b_id, price, isPaid}) => {
   const { data, loading, error, reFetch } = useFetch(`/hotels/find/${hotelId}`);
-
+  const bookingId = b_id;
+  console.log("paid", isPaid);
   const handelClick = async () => {
     await axios.delete(
       `/booking/${b_id}`
@@ -15,7 +16,9 @@ export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
     window.location.reload(false);
   };
   const [showItem, setShowItem] = useState(false);
-
+  const handlePayment = () => {
+    setShowItem(true);
+  };
 
   return (
     <div className="booking">
@@ -45,22 +48,26 @@ export const Booking = ({ hotelId, roomId, name, b_id, price }) => {
                   <span>{price}</span>
                 </div>
               </div>
-              <div className="ButtonContainer">
+              {!isPaid && <div className="ButtonContainer">
                 <button className="cancel" onClick={handelClick}>Cancel Booking</button>
               
               {showItem ? (
                 <StripeContainer
                   amount = {price}
+                  b_id = {bookingId}
                 />
               ) : (
                 <>
-                  <button className="payment" onClick={() => setShowItem(true)}>Pay booking</button>
+                  <button className="payment" onClick={() => handlePayment()}>Pay booking</button>
                 </>
               )}
               <p className="msgAlert">
                 By clicking on cancel button you will loose your reservation
               </p>
-              </div>
+              </div>}
+              {isPaid && <div className="ButtonContainer">
+                <button className="paid">Paid successfully</button>
+                </div>}
             </div>
           </div>
         )}

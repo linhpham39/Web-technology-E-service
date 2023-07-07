@@ -47,19 +47,29 @@
 
 .booking .box .rightB .cancel {
   border: none;
-  background: red;
+  background: rgb(211, 57, 57);
   color: white;
-  padding: 7px;
+  padding: 15px;
   width: 50%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.booking .box .rightB .paid {
+  border: none;
+  background: teal;
+  color: white;
+  padding: 15px;
+  padding-left: 15px;
+  padding-right: 30px;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .booking .box .rightB .payment {
   border: none;
-  background: rgb(13, 207, 26);
+  background: teal;
   color: white;
-  padding: 7px;
+  padding: 15px;
   width: 50%;
   border-radius: 10px;
   margin-top: 10px;
@@ -69,4 +79,5 @@
   font-size: 14px;
   font-weight: 500;
   margin-top: 10px;
+  color:#87bbfd
 }

@@ -34,6 +34,7 @@ export const Bookings = () => {
                   key={i}
                   b_id={data[i]._id}
                   price={item.price}
+                  isPaid={item.isPaid}
                 //   price={item.price}
                 />
               ))}
